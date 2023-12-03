@@ -1,0 +1,43 @@
+﻿@page
+@model Schoolwell_Management_System.Pages.Students.IndexModel
+@{
+}
+
+<br>
+<h2>List of Students</h2>
+<a class="btn btn-primary btn-sm" href="/Students/Create">New Student</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Student Number</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Sex</th>
+            <th>Course</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var item in Model.listStudents)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.StdNo</td>
+                <td>@item.Name</td>
+                <td>@item.Age</td>
+                <td>@item.Sex</td>
+                <td>@item.Course</td>
+                <td>@item.Email</td>
+                <td>@item.Phone</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Students/Edit?id=@item.Id">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Students/Delete?id=@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

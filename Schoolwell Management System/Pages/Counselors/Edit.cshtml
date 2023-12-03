@@ -1,0 +1,79 @@
+﻿@page
+@model Schoolwell_Management_System.Pages.Counselors.EditModel
+@{
+}
+
+<br>
+<h2>Edit Counselor</h2>
+
+@if (Model.errorMessage.Length > 0) {
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>@Model.errorMessage</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="Close"></button>
+    </div>
+}
+
+<form method="POST">
+    <input type="hidden" name="Id" value="@Model.CounselorInfo.Id" />
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Counselor Number</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="CounselorId" value="@Model.CounselorInfo.CounselorId">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Name</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="name" value="@Model.CounselorInfo.Name">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Age</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="age" value="@Model.CounselorInfo.Age">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Sex</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="sex" value="@Model.CounselorInfo.Sex">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Specialization</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="course" value="@Model.CounselorInfo.Specialization">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Email</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="email" value="@Model.CounselorInfo.Email">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Phone</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="phone" value="@Model.CounselorInfo.Phone">
+        </div>
+    </div>
+
+    @if (Model.successMessage.Length > 0) {
+        <div class="row mb-3">
+            <div class="col-sm-9">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>@Model.successMessage</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="close"></button>
+                </div>
+            </div>
+        </div>
+    }
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
+        </div>
+    </div>
+</form>

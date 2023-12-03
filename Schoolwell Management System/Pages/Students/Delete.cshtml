@@ -1,0 +1,26 @@
+﻿@page
+@using System.Data.SqlClient;
+
+@{
+    try
+    {
+        string Id = Request.Query["Id"];
+
+        string connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=StudentsWell;Integrated Security=True";
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+
+            string sql = "DELETE FROM Students WHERE Id=@Id";
+            using (SqlCommand command = new SqlCommand(sql, connection))
+            {
+                command.Parameters.AddWithValue("@Id", Id);
+                command.ExecuteNonQuery();
+            }
+        }
+    }
+        catch (Exception ex)
+        {
+            Response.Redirect("/Students/Index");
+        }
+}

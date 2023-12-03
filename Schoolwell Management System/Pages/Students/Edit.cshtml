@@ -1,0 +1,79 @@
+﻿@page
+@model Schoolwell_Management_System.Pages.Students.EditModel
+@{
+}
+
+<br>
+<h2>Edit Student</h2>
+
+@if (Model.errorMessage.Length > 0) {
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>@Model.errorMessage</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="Close"></button>
+    </div>
+}
+
+<form method="POST">
+    <input type="hidden" name="Id" value="@Model.studentInfo.Id" />
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Student Number</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="StdNo" value="@Model.studentInfo.StdNo">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Name</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="name" value="@Model.studentInfo.Name">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Age</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="age" value="@Model.studentInfo.Age">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Sex</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="sex" value="@Model.studentInfo.Sex">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Course</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="course" value="@Model.studentInfo.Course">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Email</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="email" value="@Model.studentInfo.Email">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Phone</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="phone" value="@Model.studentInfo.Phone">
+        </div>
+    </div>
+
+    @if (Model.successMessage.Length > 0) {
+        <div class="row mb-3">
+            <div class="col-sm-9">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>@Model.successMessage</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="close"></button>
+                </div>
+            </div>
+        </div>
+    }
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
+        </div>
+    </div>
+</form>
